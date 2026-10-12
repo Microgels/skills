@@ -5,11 +5,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 
-const Method = () => {
+// Interface TypeScript pour accepter la prop `id` optionnelle
+interface MethodProps {
+  id?: string;
+}
+
+const Method: React.FC<MethodProps> = ({ id }) => {
   const ref = useRef(null);
 
   return (
-    <section id="pricing" className="dark:bg-darkmode overflow-hidden py-14">
+    <section id={id || "pricing"} className="dark:bg-darkmode overflow-hidden py-14">
       <div className="container mx-auto lg:max-w-(--breakpoint-xl) md:max-w-(--breakpoint-md) px-4">
         <div
           ref={ref}
@@ -105,7 +110,7 @@ const Method = () => {
                     Apprenez à concevoir des campagnes d'acquisition efficaces, à cibler précisément votre audience et à maximiser la portée de chaque message.
                   </p>
                   <Link
-                    href="/partners"
+                    href="/signup"
                     className="text-17 flex gap-2 items-center hover:text-blue-700 text-primary w-fit"
                   >
                     Devenir partenaire
@@ -148,7 +153,7 @@ const Method = () => {
                     Accompagnement vers l'autonomie financière : monétisation des compétences, positionnement sur le marché du freelancing et opportunités de recrutement.
                   </p>
                   <Link
-                    href="/partners"
+                    href="/signup"
                     className="text-17 flex gap-2 items-center hover:text-blue-700 text-primary w-fit"
                   >
                     Soutenir le programme

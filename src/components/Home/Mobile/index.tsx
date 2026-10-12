@@ -1,11 +1,16 @@
 "use client";
 import { motion, useInView } from "motion/react";
-import { useRef } from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 
-const Mobile = () => {
+// Interface TypeScript pour accepter la prop `id` optionnelle
+interface MobileProps {
+  id?: string;
+}
+
+const Mobile: React.FC<MobileProps> = ({ id }) => {
   const ref = useRef(null);
   const inView = useInView(ref);
 
@@ -17,7 +22,7 @@ const Mobile = () => {
   ];
 
   return (
-    <section id="about" className="dark:bg-darkmode overflow-x-hidden py-14">
+    <section id={id || "about"} className="dark:bg-darkmode overflow-x-hidden py-14">
       <div className="container mx-auto lg:max-w-(--breakpoint-xl) md:max-w-(--breakpoint-md) px-4">
         <div ref={ref} className="grid md:grid-cols-12 items-center lg:gap-12 gap-6">
           <div className="lg:col-span-6 col-span-12">
