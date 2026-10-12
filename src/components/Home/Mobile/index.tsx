@@ -1,20 +1,12 @@
 "use client";
-import { motion, useInView } from "motion/react";
 import React, { useRef } from "react";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 
-// Interface TypeScript pour accepter la prop `id` optionnelle
-interface MobileProps {
-  id?: string;
-}
-
-const Mobile: React.FC<MobileProps> = ({ id }) => {
+const Mobile = () => {
   const ref = useRef(null);
-  const inView = useInView(ref);
 
-  // Données locales pour remplacer l'import supprimé
   const perks = [
     { text: "Apprenez les bases du marketing numérique et de la communication en ligne." },
     { text: "Bénéficiez d'un accompagnement pratique avec des experts du domaine." },
@@ -22,7 +14,7 @@ const Mobile: React.FC<MobileProps> = ({ id }) => {
   ];
 
   return (
-    <section id={id || "about"} className="dark:bg-darkmode overflow-x-hidden py-14">
+    <section className="dark:bg-darkmode overflow-x-hidden py-14">
       <div className="container mx-auto lg:max-w-(--breakpoint-xl) md:max-w-(--breakpoint-md) px-4">
         <div ref={ref} className="grid md:grid-cols-12 items-center lg:gap-12 gap-6">
           <div className="lg:col-span-6 col-span-12">

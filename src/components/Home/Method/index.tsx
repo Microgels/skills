@@ -1,20 +1,14 @@
 "use client";
-import React from "react";
-import { useRef } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 
-// Interface TypeScript pour accepter la prop `id` optionnelle
-interface MethodProps {
-  id?: string;
-}
-
-const Method: React.FC<MethodProps> = ({ id }) => {
+const Method = () => {
   const ref = useRef(null);
 
   return (
-    <section id={id || "pricing"} className="dark:bg-darkmode overflow-hidden py-14">
+    <section className="dark:bg-darkmode overflow-hidden py-14">
       <div className="container mx-auto lg:max-w-(--breakpoint-xl) md:max-w-(--breakpoint-md) px-4">
         <div
           ref={ref}
@@ -67,9 +61,7 @@ const Method: React.FC<MethodProps> = ({ id }) => {
               </div>
             </div>
             <div className="flex flex-col gap-4 lg:col-span-1 col-span-2">
-              <div
-                className="bg-white dark:bg-darkmode flex gap-1 items-center rounded-2xl overflow-hidden"
-              >
+              <div className="bg-white dark:bg-darkmode flex gap-1 items-center rounded-2xl overflow-hidden">
                 <div className="sm:pl-8 px-8 py-5">
                   <h3 className="md:text-25 text-20 font-medium text-midnight_text dark:text-white mb-6">
                     Social Media Management & Growth
@@ -99,9 +91,7 @@ const Method: React.FC<MethodProps> = ({ id }) => {
                   />
                 </div>
               </div>
-              <div
-                className="bg-white dark:bg-darkmode flex gap-1 items-center rounded-2xl overflow-hidden"
-              >
+              <div className="bg-white dark:bg-darkmode flex gap-1 items-center rounded-2xl overflow-hidden">
                 <div className="sm:pl-8 px-8 py-5">
                   <h3 className="md:text-25 text-20 font-medium text-midnight_text dark:text-white mb-6">
                     Communication Digital & Acquisition
@@ -110,7 +100,7 @@ const Method: React.FC<MethodProps> = ({ id }) => {
                     Apprenez à concevoir des campagnes d'acquisition efficaces, à cibler précisément votre audience et à maximiser la portée de chaque message.
                   </p>
                   <Link
-                    href="/signup"
+                    href="/partners"
                     className="text-17 flex gap-2 items-center hover:text-blue-700 text-primary w-fit"
                   >
                     Devenir partenaire
@@ -132,9 +122,7 @@ const Method: React.FC<MethodProps> = ({ id }) => {
               </div>
             </div>
             <div className="lg:col-span-1 col-span-2">
-              <div
-                className="bg-white dark:bg-darkmode rounded-2xl overflow-hidden flex flex-col"
-              >
+              <div className="bg-white dark:bg-darkmode rounded-2xl overflow-hidden flex flex-col">
                 <div>
                   <Image
                     src="/images/method/method2.jpg"
@@ -153,7 +141,7 @@ const Method: React.FC<MethodProps> = ({ id }) => {
                     Accompagnement vers l'autonomie financière : monétisation des compétences, positionnement sur le marché du freelancing et opportunités de recrutement.
                   </p>
                   <Link
-                    href="/signup"
+                    href="/partners"
                     className="text-17 flex gap-2 items-center hover:text-blue-700 text-primary w-fit"
                   >
                     Soutenir le programme
