@@ -21,12 +21,15 @@ export default function Home() {
       {/* <Payment /> */}
       {/* <Benefit /> */}
       <Spend />
-      <Method id="pricing" />
-      <Mobile id="about" />
+      <div id="pricing">
+        <Method />
+      </div>
+      <div id="about">
+        <Mobile />
+      </div>
       <Search />
       {/* <Pricing /> */}
       <Solution />
-      
     </main>
   );
 }
