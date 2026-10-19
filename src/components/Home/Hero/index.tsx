@@ -20,20 +20,20 @@ const Hero = () => {
   };
 
   // Tableau local mis à jour avec vos nouvelles images de partenaires
-  const Heroimage = [
-    {
-      lightimage: "/images/hero/aylf.jpeg", // Chemin vers aylf.jpeg
-      darkimage: "/images/hero/aylf.jpeg",  // Vous pouvez ajuster pour une version sombre si dispo
-    },
-    {
-      lightimage: "/images/hero/Patriote-01.png", // Chemin vers patriote.jpeg
-      darkimage: "/images/hero/Patriote-01.png",  // Vous pouvez ajuster pour une version sombre si dispo
-    },
-    {
-      lightimage: "/images/hero/renb.jpeg", // Chemin vers renb.jpeg
-      darkimage: "/images/hero/renb.jpeg",  // Vous pouvez ajuster pour une version sombre si dispo
-    },
-  ];
+  // const Heroimage = [
+  //   {
+  //     lightimage: "/images/hero/aylf.jpeg", // Chemin vers aylf.jpeg
+  //     darkimage: "/images/hero/aylf.jpeg",  // Vous pouvez ajuster pour une version sombre si dispo
+  //   },
+  //   {
+  //     lightimage: "/images/hero/Patriote-01.png", // Chemin vers patriote.jpeg
+  //     darkimage: "/images/hero/Patriote-01.png",  // Vous pouvez ajuster pour une version sombre si dispo
+  //   },
+  //   {
+  //     lightimage: "/images/hero/renb.jpeg", // Chemin vers renb.jpeg
+  //     darkimage: "/images/hero/renb.jpeg",  // Vous pouvez ajuster pour une version sombre si dispo
+  //   },
+  // ];
 
   return (
     <section className="relative pt-44 bg-cover bg-center dark:bg-darkmode">
@@ -89,7 +89,7 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="lg:my-28 my-12">
+            {/* <div className="lg:my-28 my-12">
               <p className="text-20 text-muted dark:text-white/60 text-start mb-7">
                 Ils soutiennent l'inclusion et l'impact numérique
               </p>
@@ -115,7 +115,7 @@ const Hero = () => {
                   </Link>
                 ))}
               </div>
-            </div>
+            </div> */}
           </motion.div>
           <motion.div
             {...rightAnimation}

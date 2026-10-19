@@ -211,6 +211,7 @@ const PartnerComponent = () => {
                   >
                     <option value="Soutien financier / Mécénat">Soutien financier / Mécénat</option>
                     <option value="Investissement stratégique">Investissement stratégique</option>
+                    <option value="Partenariat commercial">Partenariat logistique</option>
                     <option value="Partenariat technique ou opérationnel">Partenariat technique ou opérationnel</option>
                     <option value="Recrutement / Placement des talents formés">Recrutement / Placement des talents formés</option>
                     <option value="Autre forme de collaboration">Autre forme de collaboration</option>

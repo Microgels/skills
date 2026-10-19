@@ -23,12 +23,22 @@ const SignupComponent = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzaNkOqmreyJIVGuulC93oxXgVjY6Ybfw5UY2bhvoHjLsMHxnjwIpgnXmA2Sb41VTon5A/exec";
+  const SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbzaNkOqmreyJIVGuulC93oxXgVjY6Ybfw5UY2bhvoHjLsMHxnjwIpgnXmA2Sb41VTon5A/exec";
+
+  // Sources avec icônes associées pour un rendu visuel moderne
+  const sourceOptions = [
+    { label: "Réseaux sociaux", icon: "solar:share-circle-bold-duotone" },
+    { label: "Bouche à oreille", icon: "solar:chat-round-dots-bold-duotone" },
+    { label: "Affiche / Flyer", icon: "solar:document-text-bold-duotone" },
+    { label: "Site web", icon: "solar:global-bold-duotone" },
+    { label: "Autre", icon: "solar:stars-minimalistic-bold-duotone" },
+  ];
 
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
+    >,
   ) => {
     const { name, value, type } = e.target;
     if (type === "checkbox") {
@@ -44,11 +54,19 @@ const SignupComponent = () => {
     }
   };
 
+  const handleSourceSelect = (val: string) => {
+    setFormData((prev) => ({ ...prev, source: val }));
+  };
+
   const validate = () => {
     let newErrors: { [key: string]: boolean } = {};
     if (!formData.prenom.trim()) newErrors.prenom = true;
     if (!formData.nom.trim()) newErrors.nom = true;
-    if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = true;
+    if (
+      !formData.email.trim() ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+    )
+      newErrors.email = true;
     if (!formData.phone.trim()) newErrors.phone = true;
     if (!formData.ville.trim()) newErrors.ville = true;
     if (!formData.niveau) newErrors.niveau = true;
@@ -87,8 +105,7 @@ const SignupComponent = () => {
   return (
     <section className="min-h-screen pt-36 pb-24 bg-cover bg-center dark:bg-darkmode relative">
       <div className="container mx-auto lg:max-w-(--breakpoint-xl) md:max-w-(--breakpoint-md) px-4">
-        
-        {/* EN-TÊTE DE SECTION FLUIDE */}
+        {/* EN-TÊTE DE SECTION */}
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="text-primary font-semibold text-16 uppercase tracking-widest mb-3 block">
             Women’s in Digital · Microgels
@@ -97,11 +114,12 @@ const SignupComponent = () => {
             Rejoignez la formation professionnelle
           </h1>
           <p className="text-17 text-muted dark:text-white/60">
-            Remplissez ce formulaire pour valider votre inscription gratuite au programme et façonner votre avenir numérique.
+            Remplissez ce formulaire pour valider votre inscription gratuite au
+            programme et façonner votre avenir numérique.
           </p>
         </div>
 
-        {/* FORMULAIRE PRINCIPAL (SANS CARD / PLEINE PAGE FLUIDE) */}
+        {/* FORMULAIRE PRINCIPAL */}
         <div className="max-w-3xl mx-auto">
           {submitted ? (
             <div className="bg-primary/10 dark:bg-primary/20 border border-primary p-10 rounded-2xl text-center">
@@ -109,7 +127,8 @@ const SignupComponent = () => {
                 Inscription confirmée !
               </h3>
               <p className="text-17 text-muted dark:text-white/60 mb-6">
-                Merci pour votre inscription au programme Microgels. Notre équipe vous contactera très prochainement.
+                Merci pour votre inscription au programme Microgels. Notre
+                équipe vous contactera très prochainement.
               </p>
               <Link
                 href="/"
@@ -120,8 +139,7 @@ const SignupComponent = () => {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-8">
-              
-              {/* Informations personnelles */}
+              {/* 1. Informations personnelles */}
               <div>
                 <h3 className="text-18 font-bold text-midnight_text dark:text-white mb-4 border-b border-gray-200 dark:border-white/10 pb-2">
                   1. Informations personnelles
@@ -137,9 +155,13 @@ const SignupComponent = () => {
                       value={formData.prenom}
                       onChange={handleChange}
                       placeholder="Votre prénom"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/20 bg-transparent text-midnight_text dark:text-white focus:outline-none focus:border-primary"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/20 bg-transparent text-midnight_text dark:text-white focus:outline-none focus:border-primary transition-colors"
                     />
-                    {errors.prenom && <span className="text-xs text-red-500 mt-1 block">Champ obligatoire</span>}
+                    {errors.prenom && (
+                      <span className="text-xs text-red-500 mt-1 block">
+                        Champ obligatoire
+                      </span>
+                    )}
                   </div>
 
                   <div>
@@ -152,9 +174,13 @@ const SignupComponent = () => {
                       value={formData.nom}
                       onChange={handleChange}
                       placeholder="Votre nom"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/20 bg-transparent text-midnight_text dark:text-white focus:outline-none focus:border-primary"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/20 bg-transparent text-midnight_text dark:text-white focus:outline-none focus:border-primary transition-colors"
                     />
-                    {errors.nom && <span className="text-xs text-red-500 mt-1 block">Champ obligatoire</span>}
+                    {errors.nom && (
+                      <span className="text-xs text-red-500 mt-1 block">
+                        Champ obligatoire
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -169,14 +195,19 @@ const SignupComponent = () => {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="exemple@email.com"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/20 bg-transparent text-midnight_text dark:text-white focus:outline-none focus:border-primary"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/20 bg-transparent text-midnight_text dark:text-white focus:outline-none focus:border-primary transition-colors"
                     />
-                    {errors.email && <span className="text-xs text-red-500 mt-1 block">Adresse e-mail invalide</span>}
+                    {errors.email && (
+                      <span className="text-xs text-red-500 mt-1 block">
+                        Adresse e-mail invalide
+                      </span>
+                    )}
                   </div>
 
                   <div>
                     <label className="block text-15 font-medium text-midnight_text dark:text-white mb-2">
-                      Téléphone / WhatsApp <span className="text-primary">*</span>
+                      Téléphone / WhatsApp{" "}
+                      <span className="text-primary">*</span>
                     </label>
                     <input
                       type="tel"
@@ -184,9 +215,13 @@ const SignupComponent = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+257 ..."
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/20 bg-transparent text-midnight_text dark:text-white focus:outline-none focus:border-primary"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/20 bg-transparent text-midnight_text dark:text-white focus:outline-none focus:border-primary transition-colors"
                     />
-                    {errors.phone && <span className="text-xs text-red-500 mt-1 block">Champ obligatoire</span>}
+                    {errors.phone && (
+                      <span className="text-xs text-red-500 mt-1 block">
+                        Champ obligatoire
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -201,9 +236,13 @@ const SignupComponent = () => {
                       value={formData.ville}
                       onChange={handleChange}
                       placeholder="Ex : Bujumbura"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/20 bg-transparent text-midnight_text dark:text-white focus:outline-none focus:border-primary"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/20 bg-transparent text-midnight_text dark:text-white focus:outline-none focus:border-primary transition-colors"
                     />
-                    {errors.ville && <span className="text-xs text-red-500 mt-1 block">Champ obligatoire</span>}
+                    {errors.ville && (
+                      <span className="text-xs text-red-500 mt-1 block">
+                        Champ obligatoire
+                      </span>
+                    )}
                   </div>
 
                   <div>
@@ -214,7 +253,7 @@ const SignupComponent = () => {
                       name="age"
                       value={formData.age}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/20 bg-white dark:bg-midnight_text text-midnight_text dark:text-white focus:outline-none focus:border-primary"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/20 bg-white dark:bg-midnight_text text-midnight_text dark:text-white focus:outline-none focus:border-primary transition-colors"
                     >
                       <option value="">— Sélectionner —</option>
                       <option value="18 – 24 ans">18 – 24 ans</option>
@@ -226,7 +265,7 @@ const SignupComponent = () => {
                 </div>
               </div>
 
-              {/* Parcours professionnel */}
+              {/* 2. Parcours professionnel */}
               <div>
                 <h3 className="text-18 font-bold text-midnight_text dark:text-white mb-4 border-b border-gray-200 dark:border-white/10 pb-2">
                   2. Parcours & Situation
@@ -241,7 +280,7 @@ const SignupComponent = () => {
                       name="niveau"
                       value={formData.niveau}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/20 bg-white dark:bg-midnight_text text-midnight_text dark:text-white focus:outline-none focus:border-primary"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/20 bg-white dark:bg-midnight_text text-midnight_text dark:text-white focus:outline-none focus:border-primary transition-colors"
                     >
                       <option value="">— Sélectionner —</option>
                       <option value="Secondaire">Secondaire</option>
@@ -250,7 +289,11 @@ const SignupComponent = () => {
                       <option value="Master et plus">Master et plus</option>
                       <option value="Autodidacte">Autodidacte</option>
                     </select>
-                    {errors.niveau && <span className="text-xs text-red-500 mt-1 block">Champ obligatoire</span>}
+                    {errors.niveau && (
+                      <span className="text-xs text-red-500 mt-1 block">
+                        Champ obligatoire
+                      </span>
+                    )}
                   </div>
 
                   <div>
@@ -261,54 +304,35 @@ const SignupComponent = () => {
                       name="occupation"
                       value={formData.occupation}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/20 bg-white dark:bg-midnight_text text-midnight_text dark:text-white focus:outline-none focus:border-primary"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/20 bg-white dark:bg-midnight_text text-midnight_text dark:text-white focus:outline-none focus:border-primary transition-colors"
                     >
                       <option value="">— Sélectionner —</option>
                       <option value="Étudiante">Étudiante</option>
-                      <option value="En emploi (salariée)">En emploi (salariée)</option>
+                      <option value="En emploi (salariée)">
+                        En emploi (salariée)
+                      </option>
                       <option value="Freelance">Freelance</option>
-                      <option value="En recherche d'emploi">En recherche d'emploi</option>
+                      <option value="En recherche d'emploi">
+                        En recherche d'emploi
+                      </option>
                       <option value="Entrepreneuse">Entrepreneuse</option>
                     </select>
-                    {errors.occupation && <span className="text-xs text-red-500 mt-1 block">Champ obligatoire</span>}
+                    {errors.occupation && (
+                      <span className="text-xs text-red-500 mt-1 block">
+                        Champ obligatoire
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
 
-              {/* Modules souhaités */}
-              <div>
-                <h3 className="text-18 font-bold text-midnight_text dark:text-white mb-2 border-b border-gray-200 dark:border-white/10 pb-2">
-                  3. Modules du programme
-                </h3>
-                <p className="text-15 text-muted dark:text-white/60 mb-4">Sélectionnez les axes qui vous intéressent :</p>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {[
-                    "Création de contenu digital",
-                    "Gestion des réseaux sociaux",
-                    "Communication digitale & Acquisition",
-                    "Monétisation et freelancing"
-                  ].map((mod, idx) => (
-                    <label key={idx} className="flex items-center gap-3 p-4 rounded-xl border border-gray-200 dark:border-white/20 hover:border-primary cursor-pointer transition-all">
-                      <input
-                        type="checkbox"
-                        value={mod}
-                        checked={formData.modules.includes(mod)}
-                        onChange={handleChange}
-                        className="w-4 h-4 accent-primary rounded cursor-pointer"
-                      />
-                      <span className="text-15 font-medium text-midnight_text dark:text-white">{mod}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              {/* Motivation */}
+              {/* 3. Motivation & Source */}
               <div>
                 <h3 className="text-18 font-bold text-midnight_text dark:text-white mb-4 border-b border-gray-200 dark:border-white/10 pb-2">
-                  4. Motivation
+                  3. Motivation & Origine
                 </h3>
-                <div>
+
+                <div className="mb-6">
                   <label className="block text-15 font-medium text-midnight_text dark:text-white mb-2">
                     Pourquoi souhaitez-vous rejoindre le programme ?
                   </label>
@@ -318,8 +342,44 @@ const SignupComponent = () => {
                     value={formData.objectif}
                     onChange={handleChange}
                     placeholder="Partagez brièvement vos attentes..."
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/20 bg-transparent text-midnight_text dark:text-white focus:outline-none focus:border-primary"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/20 bg-transparent text-midnight_text dark:text-white focus:outline-none focus:border-primary transition-colors"
                   ></textarea>
+                </div>
+
+                {/* NOUVEAU DESIGN DE SOURCE DE DÉCOUVERTE */}
+                <div className="space-y-3">
+                  <label className="block text-15 font-bold text-midnight_text dark:text-white">
+                   4.  Comment avez-vous entendu parler de cette formation ?
+                  </label>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    {sourceOptions.map((item) => {
+                      const isSelected = formData.source === item.label;
+                      return (
+                        <button
+                          key={item.label}
+                          type="button"
+                          onClick={() => handleSourceSelect(item.label)}
+                          className={`flex items-center gap-3 p-3.5 rounded-xl border text-left transition-all duration-200 ${
+                            isSelected
+                              ? "border-primary bg-primary/10 dark:bg-primary/20 text-primary font-semibold shadow-sm"
+                              : "border-gray-200 dark:border-white/10 bg-transparent text-midnight_text/80 dark:text-white/80 hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-white/5"
+                          }`}
+                        >
+                          <Icon
+                            icon={item.icon}
+                            width="22"
+                            height="22"
+                            className={
+                              isSelected
+                                ? "text-primary"
+                                : "text-gray-400 dark:text-white/40"
+                            }
+                          />
+                          <span className="text-14">{item.label}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
 
@@ -333,7 +393,11 @@ const SignupComponent = () => {
                 ) : (
                   <>
                     Valider mon inscription
-                    <Icon icon="solar:alt-arrow-right-linear" width="18" height="18" />
+                    <Icon
+                      icon="solar:alt-arrow-right-linear"
+                      width="18"
+                      height="18"
+                    />
                   </>
                 )}
               </button>
