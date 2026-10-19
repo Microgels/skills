@@ -18,8 +18,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      {/* <Payment /> */}
-      {/* <Benefit /> */}
+
       <Spend />
       <div id="pricing">
         <Method />
@@ -28,7 +27,7 @@ export default function Home() {
         <Mobile />
       </div>
       <Search />
-      {/* <Pricing /> */}
+
       <Solution />
     </main>
   );
