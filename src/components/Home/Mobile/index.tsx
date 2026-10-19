@@ -8,9 +8,9 @@ const Mobile = () => {
   const ref = useRef(null);
 
   const perks = [
-    { text: "Apprenez les bases du marketing numérique et de la communication en ligne." },
-    { text: "Bénéficiez d'un accompagnement pratique avec des experts du domaine." },
-    { text: "Développez votre réseau professionnel et accédez à de nouvelles opportunités." },
+    { text: "Apprenez à utiliser les réseaux sociaux pour votre activité." },
+    { text: "Bénéficiez d'ateliers pratiques et d'un accompagnement personnalisé." },
+    { text: "Accédez à un réseau professionnel et à des opportunités concrètes." },
   ];
 
   return (
@@ -26,18 +26,17 @@ const Mobile = () => {
               </span>
             </h2>
             <p className="mt-6 text-muted dark:text-white/60 lg:text-17 lg:max-w-full sm:max-w-75%">
-              Profitez d'une formation 100 % gratuite avec Women’s in Digital
-              pour apprendre à utiliser les outils numériques, créer du contenu
-              et découvrir de nouvelles opportunités professionnelles.
+              Rejoignez le programme « Marketing Digital Women » de Microgels. Une formation 100% gratuite dispensée par des experts pour booster votre carrière et vos projets.
             </p>
-            <div className="flex flex-col gap-6 mt-16">
+            
+            <div className="flex flex-col gap-6 mt-10">
               {perks.map((item, index) => (
-                <div key={index} className="flex items-start gap-5">
-                  <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center">
+                <div key={index} className="flex items-start gap-4">
+                  <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center shrink-0 mt-0.5">
                     <Icon
-                      icon="solar:unread-outline"
-                      width="24"
-                      height="24"
+                      icon="solar:check-read-linear"
+                      width="18"
+                      height="18"
                       className="text-white"
                     />
                   </div>
@@ -47,28 +46,31 @@ const Mobile = () => {
                 </div>
               ))}
             </div>
+
             <div className="flex items-center justify-start">
               <Link
                 href="/inscription"
-                className="lg:text-17 flex gap-4 items-center bg-primary text-white py-2 px-4 lg:py-3 lg:px-8 rounded-lg mt-12 border border-primary hover:text-primary hover:bg-transparent"
+                className="lg:text-17 flex gap-4 items-center bg-primary text-white py-3 px-8 rounded-lg mt-10 border border-primary hover:text-primary hover:bg-transparent transition-colors font-medium"
               >
-                S'inscrire gratuitement
+                Rejoindre le programme
                 <Icon
                   icon="solar:alt-arrow-right-linear"
-                  width="13"
-                  height="13"
+                  width="16"
+                  height="16"
                 />
               </Link>
             </div>
           </div>
+
           <div className="lg:col-span-6 col-span-12">
             <div className="lg:max-w-full max-w-75% mx-auto">
               <Image
                 src="/images/mobile/Digital lifestyle-pana.png"
-                alt="image"
+                alt="Marketing Digital Women"
                 width={555}
                 height={634}
-                style={{ width: "100%", height: "100%" }}
+                style={{ width: "100%", height: "auto" }}
+                priority
               />
             </div>
           </div>

@@ -4,11 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 
-const Method = () => {
+type MethodProps = {
+  id?: string;
+};
+
+const Method = ({ id }: MethodProps) => {
   const ref = useRef(null);
 
   return (
-    <section className="dark:bg-darkmode overflow-hidden py-14">
+    <section id={id} className="dark:bg-darkmode overflow-hidden py-14">
       <div className="container mx-auto lg:max-w-(--breakpoint-xl) md:max-w-(--breakpoint-md) px-4">
         <div
           ref={ref}
