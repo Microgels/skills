@@ -5,6 +5,7 @@ import Hero from "@/components/Home/Hero";
 // import Benefit  from "@/components/Home/Benefit";
 import Spend from "@/components/Home/Spend";
 import Method from "@/components/Home/Method";
+import Approach from "@/components/Home/Approach";
 import Mobile from "@/components/Home/Mobile";
 import Search from "@/components/Home/Search";
 // import Pricing from "@/components/Home/Pricing";
@@ -23,6 +24,7 @@ export default function Home() {
       <div id="pricing">
         <Method />
       </div>
+      <Approach />
       <div id="about">
         <Mobile />
       </div>
