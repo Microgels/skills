@@ -6,6 +6,7 @@ import Hero from "@/components/Home/Hero";
 import Spend from "@/components/Home/Spend";
 import Method from "@/components/Home/Method";
 import Approach from "@/components/Home/Approach";
+import Timeline from "@/components/Home/Timeline";
 import Mobile from "@/components/Home/Mobile";
 import Search from "@/components/Home/Search";
 // import Pricing from "@/components/Home/Pricing";
@@ -25,6 +26,7 @@ export default function Home() {
         <Method />
       </div>
       <Approach />
+      <Timeline />
       <div id="about">
         <Mobile />
       </div>

@@ -19,6 +19,22 @@ const Hero = () => {
     transition: { duration: 0.5 },
   };
 
+  // Logos des partenaires
+  const Heroimage = [
+    {
+      lightimage: "/images/hero/aylf.jpeg",
+      darkimage: "/images/hero/aylf.jpeg",
+    },
+    {
+      lightimage: "/images/hero/Patriote-01.png",
+      darkimage: "/images/hero/Patriote-01.png",
+    },
+    {
+      lightimage: "/images/hero/renb.jpeg",
+      darkimage: "/images/hero/renb.jpeg",
+    },
+  ];
+
   return (
     <section className="relative pt-44 bg-cover bg-center dark:bg-darkmode">
       <div className="w-full h-full absolute z-0 bg-hero-bg sm:rounded-b-[119px] sm:-left-1/4 2xl:-left-1/3 top-0 dark:bg-midnight_text"></div>
@@ -72,7 +88,35 @@ const Hero = () => {
                 </Link>
               </div>
             </div>
+
+            {/* SECTION PARTENAIRES */}
+            <div className="lg:my-16 my-10">
+              <p className="text-16 font-semibold tracking-wider text-muted dark:text-white/60 text-start mb-5">
+                Nos partenaires 
+              </p>
+              <div className="flex items-center space-x-6 justify-start w-full">
+                {Heroimage.map((item, index) => (
+                  <Link key={index} href="/partners" className="opacity-80 hover:opacity-100 transition-opacity">
+                    <Image
+                      src={item.lightimage}
+                      alt="Partenaire"
+                      width={115}
+                      height={40}
+                      className="block dark:hidden object-contain max-h-12 w-auto"
+                    />
+                    <Image
+                      src={item.darkimage}
+                      alt="Partenaire"
+                      width={115}
+                      height={40}
+                      className="hidden dark:block object-contain max-h-12 w-auto"
+                    />
+                  </Link>
+                ))}
+              </div>
+            </div>
           </motion.div>
+
           <motion.div
             {...rightAnimation}
             className="lg:col-span-6 col-span-12 pl-20 lg:block hidden"
@@ -82,7 +126,7 @@ const Hero = () => {
               alt="Women's in Digital - Cohorte 1"
               width={498}
               height={651}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-2xl"
             />
           </motion.div>
         </div>

@@ -105,17 +105,22 @@ const SignupComponent = () => {
   return (
     <section className="min-h-screen pt-36 pb-24 bg-cover bg-center dark:bg-darkmode relative">
       <div className="container mx-auto lg:max-w-(--breakpoint-xl) md:max-w-(--breakpoint-md) px-4">
-        {/* EN-TÊTE DE SECTION */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="text-primary font-semibold text-16 uppercase tracking-widest mb-3 block">
-            Women’s in Digital · Microgels
-          </span>
-          <h1 className="md:text-45 sm:text-36 text-28 font-bold text-midnight_text dark:text-white mb-4">
-            Rejoignez la formation professionnelle
+        {/* EN-TÊTE DE SECTION SOIGNÉE & MODERNE */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary rounded-full px-4 py-1.5 mb-6">
+            <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+            <span className="text-13 font-bold tracking-wider uppercase">
+              Microgels · Cohorte 1
+            </span>
+          </div>
+
+          <h1 className="md:text-45 sm:text-36 text-28 font-bold text-midnight_text dark:text-white mb-5 leading-tight">
+            Candidature au programme{" "}
+            <span className="text-primary block sm:inline">Women’s in Digital</span>
           </h1>
-          <p className="text-17 text-muted dark:text-white/60">
-            Remplissez ce formulaire pour valider votre inscription gratuite au
-            programme et façonner votre avenir numérique.
+
+          <p className="text-17 text-muted dark:text-white/70 leading-relaxed max-w-2xl mx-auto">
+            Une formation intensive et 100 % gratuite pour acquérir des compétences pratiques en marketing digital, création de contenu et entrepreneuriat à Bujumbura.
           </p>
         </div>
 
@@ -346,10 +351,10 @@ const SignupComponent = () => {
                   ></textarea>
                 </div>
 
-                {/* NOUVEAU DESIGN DE SOURCE DE DÉCOUVERTE */}
+                {/* SOURCE DE DÉCOUVERTE */}
                 <div className="space-y-3">
                   <label className="block text-15 font-bold text-midnight_text dark:text-white">
-                   4.  Comment avez-vous entendu parler de cette formation ?
+                    4. Comment avez-vous entendu parler de cette formation ?
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                     {sourceOptions.map((item) => {

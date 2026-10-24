@@ -54,7 +54,7 @@ const Method = ({ id }: MethodProps) => {
                   </div>
                   <div>
                     <Image
-                      src="/images/method/Social strategy-bro.png"
+                      src="/images/method/WhatsApp Image 2026-10-24 at 7.55.27 PM.jpeg"
                       alt="Stratégie de contenu"
                       width={500}
                       height={300}
